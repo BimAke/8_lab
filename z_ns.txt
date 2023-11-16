@@ -1,0 +1,111 @@
+#1
+def multiply_list(numbers):
+result = reduce((lambda x, y: x * y), numbers)
+return result
+#2
+def count_upper_lower_case_letters(input_string):
+upper_count = sum(1 for char in input_string if char.isupper())
+lower_count = sum(1 for char in input_string if char.islower())
+return upper_count, lower_count
+#3
+def is_palindrome(input_string):
+input_string = input_string.lower()
+input_string = ''join(e for e in input_string if e.isalnum())
+return input_string == input_string[::-1]
+#4
+
+def square_root(num):
+return num ** 0.5
+def invoke_square_root_after_milliseconds(num, milliseconds):
+time.sleep(milliseconds / 1000)
+result = square_root(num)
+print(f"Square root of {num} is {result}")
+#5
+def all_time(t):
+return all(t)
+
+#1
+import os
+def list_directories_files(path):
+    directories = [d for d in os.listdir(path) if os.path.isdir(os.path.join(path, d))]
+    files = [f for f in os.listdir(path) if os.path.isfile(os.path.join(path, f))]
+    print("Directories:")
+    for d in directories:
+        print(d)
+    print("\nFiles:")
+    for f in files:
+        print(f)
+    print("\nAll Directories and Files:")
+    for d in directories:
+        print(d)
+    for f in files:
+        print(f)
+#2
+import os
+
+def check_path_access(path):
+    if os.path.exists(path):
+        print(f"{path} exists")
+        if os.access(path, os.R_OK):
+            print(f"{path} is readable")
+        else:
+            print(f"{path} is not readable")
+        if os.access(path, os.W_OK):
+            print(f"{path} is writable")
+        else:
+            print(f"{path} is not writable"
+        if os.access(path, os.X_OK):
+            print(f"{path} is executable")
+        else:
+            print(f"{path} is not executable")
+    else:
+        print(f"{path} does not exist")
+#3
+import os
+def check_path_existence(path):
+    if os.path.exists(path):
+        print(f"{path} exists")        
+        filename = os.path.basename(path)
+        directory = os.path.dirname(path)
+        print(f"Filename: {filename}")
+        print(f"Directory: {directory}")
+    else:
+        print(f"{path} does not exist")
+#4
+def count_lines_in_file(file_path):
+    try:
+        with open(file_path, 'r') as file:
+            line_count = sum(1 for line in file)
+            print(f"The file '{file_path}' has {line_count} lines.")
+    except FileNotFoundError:
+        print(f"The file '{file_path}' does not exist.")
+#5
+def write_list_to_file(file_path, input_list):
+    with open(file_path, 'a') as file:
+        for item in input_list:
+            file.write(str(item) + "\n")
+    print(f"The list has been written to the file '{file_path}'.")
+#6
+import string
+def generate_alphabet_files():
+    for letter in string.ascii_uppercase:
+        file_path = f"{letter}.txt"
+        input_list = [letter]
+        write_list_to_file(file_path, input_list)
+#7
+def copy_file(source_file, destination_file):
+    with open(source_file, 'r') as source:
+        data = source.read()
+        with open(destination_file, 'w') as destination:
+            destination.write(data)
+#8
+import os
+def delete_file(file_path):
+    if os.path.exists(file_path):
+        if os.access(file_path, os.W_OK):
+            os.remove(file_path)
+            print(f"{file_path} has been deleted.")
+        else:
+            print(f"You do not have permission to delete {file_path}.")
+    else:
+        print(f"{file_path} does not exist.")
